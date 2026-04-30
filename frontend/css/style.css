@@ -1,0 +1,124 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: serif;
+}
+
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    color: white;
+    z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* VIDEO */
+#bg-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hero-content h2 {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.hero-content button {
+    padding: 12px 25px;
+    border: none;
+    background: #c9a96e;
+    color: white;
+    cursor: pointer;
+}
+.carousel {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: black;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 40px;
+    padding: 0 100px;
+}
+
+.card {
+    flex: 0 0 300px;
+    height: 400px;
+    position: relative;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.card.active {
+    flex: 0 0 500px;
+    height: 600px;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
