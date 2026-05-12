@@ -1,19 +1,13 @@
-const cards = document.querySelectorAll(".card");
-
-cards.forEach((card) => {
-    card.addEventListener("click", () => {
-        document.querySelector(".active").classList.remove("active");
-        card.classList.add("active");
-    });
-});
+const navbar = document.querySelector(".navbar");
+const cards = document.querySelectorAll(".vitrine-card");
 
 window.addEventListener("scroll", () => {
-    const nav = document.querySelector(".navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 80);
+});
 
-    if (window.scrollY > 50) {
-        nav.style.background = "rgba(0,0,0,0.4)";
-        nav.style.backdropFilter = "blur(5px)";
-    } else {
-        nav.style.background = "transparent";
-    }
+cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+        cards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+    });
 });
