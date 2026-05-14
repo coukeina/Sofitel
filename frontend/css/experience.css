@@ -1,0 +1,506 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080706;
+    color: #f5eee3;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.label {
+    color: #c9a457;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 28px 72px;
+    display: grid;
+    grid-template-columns: 240px 1fr 160px;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(8, 7, 6, 0.55);
+    backdrop-filter: blur(16px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand img {
+    height: 28px;
+}
+
+.brand span {
+    font-family: 'Italiana', serif;
+    font-size: 32px;
+    letter-spacing: 8px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 52px;
+}
+
+.menu a {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    opacity: 0.85;
+}
+
+.menu a:hover {
+    color: #c9a457;
+}
+
+.reserve-btn {
+    justify-self: end;
+    border: 1px solid rgba(201, 164, 87, 0.65);
+    padding: 14px 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+/* HERO */
+.experience-hero {
+    min-height: 100vh;
+    padding: 150px 72px 90px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+}
+
+.experience-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(201,164,87,0.18), transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(255,130,60,0.12), transparent 35%);
+    pointer-events: none;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: clamp(70px, 8vw, 140px);
+    line-height: 0.9;
+    margin: 22px 0 28px;
+}
+
+.hero-text p:last-child {
+    color: #d7c8b5;
+    max-width: 520px;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.hero-art {
+    height: 640px;
+    position: relative;
+    z-index: 2;
+}
+
+.art-img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.55);
+    transition: 0.7s cubic-bezier(.16,1,.3,1);
+}
+
+.img-one {
+    width: 330px;
+    height: 450px;
+    left: 0;
+    top: 120px;
+    transform: rotate(-8deg);
+}
+
+.img-two {
+    width: 430px;
+    height: 560px;
+    left: 220px;
+    top: 20px;
+    z-index: 3;
+}
+
+.img-three {
+    width: 310px;
+    height: 420px;
+    right: 0;
+    bottom: 30px;
+    transform: rotate(7deg);
+}
+
+.hero-art:hover .img-one {
+    transform: rotate(-11deg) translateY(-20px);
+}
+
+.hero-art:hover .img-two {
+    transform: scale(1.04);
+}
+
+.hero-art:hover .img-three {
+    transform: rotate(10deg) translateY(20px);
+}
+
+/* ATLAS */
+.atlas {
+    padding: 120px 72px;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    grid-template-rows: 420px 420px;
+    gap: 26px;
+    background: #f4efe7;
+}
+
+.atlas-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 38px;
+    color: white;
+    cursor: pointer;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.8s ease;
+}
+
+.atlas-card.reveal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card-large {
+    grid-row: span 2;
+}
+
+.card-wide {
+    grid-column: span 1;
+}
+
+.atlas-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s cubic-bezier(.16,1,.3,1);
+}
+
+.atlas-card:hover img {
+    transform: scale(1.1);
+}
+
+.atlas-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), transparent 60%),
+        linear-gradient(to right, rgba(0,0,0,0.45), transparent);
+}
+
+.atlas-card > span {
+    position: absolute;
+    top: 34px;
+    left: 34px;
+    z-index: 2;
+    color: #c9a457;
+    letter-spacing: 4px;
+}
+
+.card-text {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    bottom: 36px;
+    z-index: 2;
+}
+
+.card-text p {
+    color: #c9a457;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.card-text h2 {
+    font-size: clamp(38px, 4vw, 70px);
+    line-height: 1;
+}
+
+/* MOMENTS */
+.moments {
+    padding: 130px 72px;
+    background: #080706;
+}
+
+.moments h2 {
+    font-size: clamp(56px, 6vw, 96px);
+    max-width: 850px;
+    line-height: 1;
+    margin: 18px 0 60px;
+}
+
+.moment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.moment-card {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.moment-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.7s ease;
+}
+
+/* DARK GRADIENT */
+.moment-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+}
+
+/* TEXT */
+.overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    z-index: 2;
+}
+
+.overlay span {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: #c9a457;
+}
+
+.overlay h3 {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+/* CULINARY */
+.culinary {
+    padding: 130px 72px;
+    background: #080706;
+}
+
+.culinary h2 {
+    font-size: clamp(56px, 6vw, 96px);
+    max-width: 900px;
+    line-height: 1;
+    margin: 18px 0 70px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-auto-rows: 330px;
+    gap: 22px;
+}
+
+.restaurant-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #f5eee3;
+    cursor: pointer;
+}
+
+.restaurant-card.large {
+    grid-row: span 2;
+}
+
+.restaurant-card.wide {
+    grid-column: span 2;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.8s ease;
+}
+
+.restaurant-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent 60%);
+}
+
+.restaurant-card div {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    z-index: 2;
+}
+
+.restaurant-card span {
+    color: #c9a457;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.restaurant-card h3 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.restaurant-card p {
+    color: #ddd0c0;
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.restaurant-card:hover img {
+    transform: scale(1.1);
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .culinary {
+        padding: 90px 24px;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 420px;
+    }
+
+    .restaurant-card.large,
+    .restaurant-card.wide {
+        grid-row: auto;
+        grid-column: auto;
+    }
+}
+
+.final-cta h2 {
+    font-size: clamp(60px, 8vw, 120px);
+    line-height: 0.95;
+    margin-bottom: 38px;
+}
+
+.final-cta a {
+    border: 1px solid #c9a457;
+    padding: 18px 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.35s;
+}
+
+.final-cta a:hover {
+    background: #c9a457;
+    color: #080706;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .navbar {
+        grid-template-columns: 1fr auto;
+        padding: 22px 24px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .experience-hero {
+        grid-template-columns: 1fr;
+        padding: 130px 24px 80px;
+    }
+
+    .hero-art {
+        height: 560px;
+    }
+
+    .img-one {
+        width: 45%;
+        height: 360px;
+    }
+
+    .img-two {
+        width: 55%;
+        height: 430px;
+        left: 25%;
+    }
+
+    .img-three {
+        width: 42%;
+        height: 330px;
+    }
+
+    .atlas {
+        padding: 90px 24px;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+    }
+
+    .atlas-card {
+        height: 480px;
+    }
+
+    .card-large,
+    .card-wide {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    .moments {
+        padding: 90px 24px;
+    }
+
+    
+}
