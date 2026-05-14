@@ -9,10 +9,24 @@ html {
 }
 
 body {
-    background: #080706;
     color: #f7efe3;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(201,164,87,0.22), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(244,214,160,0.10), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(90,55,25,0.18), transparent 35%),
+        linear-gradient(
+            135deg,
+            #120d09 0%,
+            #1e140d 25%,
+            #2d1d12 50%,
+            #4a311e 75%,
+            #8f6a46 130%
+        );
+
+    background-attachment: fixed;
 }
 
 h1, h2, h3 {
@@ -40,6 +54,15 @@ a {
     background-size: 4px 4px;
     opacity: .12;
     pointer-events: none;
+}
+
+.room-card,
+.restaurant-card,
+.ritual-grid div {
+    background: rgba(15, 10, 7, 0.42);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* NAVBAR */
@@ -220,42 +243,11 @@ a {
     background: linear-gradient(transparent, #c9a457);
 }
 
-/* EDITORIAL */
-.editorial {
-    min-height: 70vh;
-    background: #f4efe7;
-    color: #080706;
-    padding: 120px 70px;
-    display: grid;
-    grid-template-columns: 120px 1.3fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.editorial-number {
-    font-family: 'Italiana', serif;
-    font-size: 90px;
-    color: #c9a457;
-}
-
-.editorial h2 {
-    font-size: clamp(48px, 5vw, 88px);
-    line-height: .95;
-}
-
-.editorial > p {
-    color: #514940;
-    line-height: 2;
-    font-size: 17px;
-}
-
-/* EXPERIENCE */
 .experience {
     min-height: 100vh;
     padding: 120px 70px;
-    background: #080706;
+    background: transparent;
 }
-
 .section-heading {
     display: flex;
     justify-content: space-between;
@@ -335,9 +327,8 @@ a {
     line-height: 1.7;
 }
 
-/* RITUALS */
 .rituals {
-    background: #11100e;
+    background: transparent;
     padding: 120px 70px;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -383,10 +374,9 @@ a {
     color: #cfc2b3;
 }
 
-/* ROOMS */
 .rooms {
-    background: #f4efe7;
-    color: #080706;
+    background: transparent;
+    color: #f7efe3;
     padding: 120px 70px;
 }
 
@@ -402,7 +392,7 @@ a {
 }
 
 .room-card {
-    background: white;
+    background: rgb(109, 92, 57);
     border-radius: 34px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0,0,0,.12);
@@ -432,7 +422,7 @@ a {
 }
 
 .room-card span {
-    color: #9d772c;
+    color: #393836;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 11px;
@@ -444,7 +434,7 @@ a {
 }
 
 .room-card p {
-    color: #5d554c;
+    color: #000000;
     line-height: 1.7;
 }
 
@@ -454,7 +444,7 @@ a {
     text-align: center;
     background:
         linear-gradient(rgba(8,7,6,.82), rgba(8,7,6,.82)),
-        url("../assets/images/sunset.jpg") center/cover fixed;
+        url("../assets/images/sofitel.jpg") center/cover fixed;
 }
 
 .booking h2 {
@@ -612,4 +602,127 @@ a {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
+}
+
+.editorial {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    padding: 120px 70px;
+
+    display: grid;
+    grid-template-columns: 140px 1.4fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 20% 10%, rgba(198, 156, 99, 0.35), transparent 28%),
+        radial-gradient(circle at 80% 40%, rgba(244, 214, 160, 0.18), transparent 30%),
+        linear-gradient(135deg, #130f0a 0%, #2b1f15 45%, #c49b67 160%);
+
+    color: #f6f1ea;
+}
+
+.editorial-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(244,214,160,0.45) 1px, transparent 1px);
+    background-size: 90px 90px;
+    opacity: 0.13;
+    animation: editorialSparkle 18s linear infinite;
+}
+
+.editorial-number,
+.editorial-title,
+.editorial-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.editorial-number {
+    font-family: 'Italiana', serif;
+    font-size: 90px;
+    color: #d2a85e;
+}
+
+.editorial-title .eyebrow {
+    color: #d2a85e;
+    margin-bottom: 16px;
+}
+
+.editorial-title h2 {
+    font-family: 'Italiana', serif;
+    font-size: clamp(50px, 5.5vw, 86px);
+    line-height: 0.95;
+    color: #f6f1ea;
+    max-width: 780px;
+}
+
+.editorial-copy p {
+    color: rgba(255,255,255,0.75);
+    line-height: 1.9;
+    font-size: 18px;
+    max-width: 460px;
+}
+
+@keyframes editorialSparkle {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 180px 180px;
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+
+    background-size: 80px 80px;
+
+    opacity: 0.08;
+
+    animation: luxuryTexture 30s linear infinite;
+}
+
+@keyframes luxuryTexture {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 200px 200px;
+    }
+}
+
+section {
+    position: relative;
+    background: transparent !important;
+    margin: 0;
+    border: none;
+}
+
+.editorial,
+.experience,
+.rituals,
+.rooms,
+.booking,
+.footer {
+    background: transparent !important;
+}
+
+.editorial::before,
+.experience::before,
+.rituals::before,
+.rooms::before,
+.booking::before {
+    display: none !important;
 }
