@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking — Sofitel Agadir</title>
+    <link rel="stylesheet" href="../css/booking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="cursor-glow"></div>
+
+<header class="navbar">
+    <a href="../index.html" class="brand">
+        <img src="../assets/images/logo.png" alt="Sofitel logo">
+        <span>SOFITEL</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="booking.html" class="nav-cta">Reserve</a>
+</header>
+
+<section class="booking-hero">
+    <p class="eyebrow">Reservation</p>
+    <h1>Book your stay.</h1>
+    <p>
+        Select your dates, room category and guest details. This request will be saved and sent to the future admin dashboard.
+    </p>
+</section>
+
+<section class="booking-section">
+
+    <form class="booking-form" id="bookingForm">
+
+        <div class="form-header">
+            <p class="eyebrow">Stay details</p>
+            <h2>Your reservation request</h2>
+        </div>
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>Full name</label>
+                <input type="text" id="fullName" required placeholder="Your name">
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="input-group">
+                <label>Phone</label>
+                <input type="tel" id="phone" required placeholder="+212 ...">
+            </div>
+
+            <div class="input-group">
+                <label>Room type</label>
+                <select id="roomType" required>
+                    <option value="Superior Room" data-price="120">Superior Room — from 120€/night</option>
+                    <option value="Deluxe Pool View" data-price="170">Deluxe Pool View — from 170€/night</option>
+                    <option value="Deluxe Ocean View" data-price="210">Deluxe Ocean View — from 210€/night</option>
+                    <option value="Privilege Suite" data-price="420">Privilege Suite — from 420€/night</option>
+                    <option value="Executive Villa" data-price="650">Executive Villa — from 650€/night</option>
+                    <option value="Royal Villa" data-price="1200">Royal Villa — from 1200€/night</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Check-in</label>
+                <input type="date" id="checkIn" required>
+            </div>
+
+            <div class="input-group">
+                <label>Check-out</label>
+                <input type="date" id="checkOut" required>
+            </div>
+
+            <div class="input-group">
+                <label>Adults</label>
+                <select id="adults">
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>9</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Children</label>
+                <select id="children">
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="input-group">
+            <label>Special request</label>
+            <textarea id="message" placeholder="Airport transfer, late check-out, restaurant reservation..."></textarea>
+        </div>
+
+        <div class="booking-summary">
+            <div>
+                <span>Estimated stay</span>
+                <strong id="nightCount">0 nights</strong>
+            </div>
+
+            <div>
+                <span>Estimated total</span>
+                <strong id="totalPrice">0€</strong>
+            </div>
+
+            <p>
+                Prices are estimated for the project interface and may vary depending on availability, season and offers.
+            </p>
+        </div>
+
+        <button type="submit" class="submit-btn">Continue reservation</button>
+
+    </form>
+
+    <aside class="booking-side">
+        <p class="eyebrow">Concierge note</p>
+        <h2>What happens next?</h2>
+
+        <div class="step">
+            <span>01</span>
+            <p>Your request is saved.</p>
+        </div>
+
+        <div class="step">
+            <span>02</span>
+            <p>The admin team can review it.</p>
+        </div>
+
+        <div class="step">
+            <span>03</span>
+            <p>A confirmation can be handled later with backend/database.</p>
+        </div>
+
+        <a href="contact.html">Need help?</a>
+    </aside>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="">
+        <h2>SOFITEL</h2>
+        <p>French elegance. Moroccan soul. Atlantic light.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Legal Notice</a>
+        <a href="#">Accessibility</a>
+    </div>
+
+    <p class="copyright">© 2026 Sofitel Royal Bay Agadir — Student internship project.</p>
+</footer>
+
+<script src="../js/booking.js"></script>
+</body>
+</html>
