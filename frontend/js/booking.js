@@ -41,6 +41,14 @@ checkOut.addEventListener("change", calculatePrice);
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("Please login before making a reservation.");
+        window.location.href = "login.html";
+        return;
+    }
+
     const priceInfo = calculatePrice();
 
     if (priceInfo.nights === 0) {
@@ -63,24 +71,29 @@ form.addEventListener("submit", async (e) => {
     };
 
     try {
+
         const response = await fetch("http://localhost:5000/api/bookings", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(booking)
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-            throw new Error("Booking request failed");
+            throw new Error(data.message || "Booking request failed");
         }
 
         alert("Reservation request sent successfully!");
+
         form.reset();
         calculatePrice();
 
     } catch (error) {
-        alert("Error while sending reservation. Please check backend.");
+        alert("Error while sending reservation.");
         console.error(error);
     }
 });

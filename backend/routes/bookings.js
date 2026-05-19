@@ -1,15 +1,34 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 const db = require("../config/db");
 
-router.post("/", (req, res) => {
+function verifyToken(req, res, next) {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+        return res.status(401).json({ message: "No token provided" });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    try {
+        req.user = jwt.verify(token, process.env.JWT_SECRET);
+        next();
+    } catch {
+        return res.status(403).json({ message: "Invalid token" });
+    }
+}
+
+router.post("/", verifyToken, (req, res) => {
     const sql = `
         INSERT INTO bookings
-        (full_name, email, phone, room_type, check_in, check_out, adults, children, message, nights, estimated_total, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (user_id, full_name, email, phone, room_type, check_in, check_out, adults, children, message, nights, estimated_total, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     const values = [
+        req.user.id,
         req.body.fullName,
         req.body.email,
         req.body.phone,
@@ -25,10 +44,7 @@ router.post("/", (req, res) => {
     ];
 
     db.query(sql, values, (err, result) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).json({ error: err.message });
-        }
+        if (err) return res.status(500).json({ error: err.message });
 
         res.status(201).json({
             message: "Booking saved successfully",
@@ -37,12 +53,20 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/my", verifyToken, (req, res) => {
+    db.query(
+        "SELECT * FROM bookings WHERE user_id = ? ORDER BY created_at DESC",
+        [req.user.id],
+        (err, results) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(results);
+        }
+    );
+});
+
 router.get("/", (req, res) => {
     db.query("SELECT * FROM bookings ORDER BY created_at DESC", (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-
+        if (err) return res.status(500).json({ error: err.message });
         res.json(results);
     });
 });
