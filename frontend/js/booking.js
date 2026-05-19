@@ -38,7 +38,7 @@ roomType.addEventListener("change", calculatePrice);
 checkIn.addEventListener("change", calculatePrice);
 checkOut.addEventListener("change", calculatePrice);
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const priceInfo = calculatePrice();
@@ -49,7 +49,6 @@ form.addEventListener("submit", (e) => {
     }
 
     const booking = {
-        id: Date.now(),
         fullName: document.getElementById("fullName").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value,
@@ -60,14 +59,28 @@ form.addEventListener("submit", (e) => {
         children: document.getElementById("children").value,
         message: document.getElementById("message").value,
         nights: priceInfo.nights,
-        estimatedTotal: priceInfo.total,
-        status: "Pending"
+        estimatedTotal: priceInfo.total
     };
 
-    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    bookings.push(booking);
+    try {
+        const response = await fetch("http://localhost:5000/api/bookings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(booking)
+        });
 
-    localStorage.setItem("bookings", JSON.stringify(bookings));
+        if (!response.ok) {
+            throw new Error("Booking request failed");
+        }
 
-    window.location.href = "admin.html";
+        alert("Reservation request sent successfully!");
+        form.reset();
+        calculatePrice();
+
+    } catch (error) {
+        alert("Error while sending reservation. Please check backend.");
+        console.error(error);
+    }
 });
