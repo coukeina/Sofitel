@@ -12,21 +12,23 @@
 <body>
 
 <nav class="navbar">
-    <a href="#" class="brand">
+    <a href="index.html" class="brand">
         <img src="assets/images/logo.png" alt="Sofitel logo">
         <span>SOFITEL</span>
     </a>
 
     <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="pages/experience.html">Experience</a></li>
-    <li><a href="pages/rooms.html">Rooms</a></li>
-    <li><a href="pages/dining.html">Dining</a></li>
-    <li><a href="pages/booking.html">Booking</a></li>
-    <li><a href="pages/contact.html">Contact</a></li>
-</ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/experience.html">Experience</a></li>
+        <li><a href="pages/rooms.html">Rooms</a></li>
+        <li><a href="pages/dining.html">Dining</a></li>
+        <li><a href="pages/booking.html">Booking</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
 
-<a href="pages/booking.html" class="nav-cta">Reserve</a>
+    <div class="nav-actions">
+        <a href="pages/login.html" class="nav-login" id="authLink">Login/Register</a>
+    </div>
 </nav>
 
 <section class="hero">
@@ -255,5 +257,245 @@
 </footer>
 
 <script src="js/main.js"></script>
+</body>
+</html>
+</nav>
+
+<section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/videos/background.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-shade"></div>
+    <div class="grain"></div>
+
+    <div class="hero-content">
+        <p class="eyebrow">Sofitel Royal Bay Agadir</p>
+        <h1>Agadir, curated as a feeling.</h1>
+        <p class="hero-text">
+            A cinematic resort experience between Atlantic light, Moroccan elegance and slow luxury.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#booking">Book your stay</a>
+            <a href="#experience" class="ghost">Explore the story</a>
+        </div>
+    </div>
+
+</section>
+
+<section class="editorial">
+    <div class="editorial-bg"></div>
+
+    <div class="editorial-number">01</div>
+
+    <div class="editorial-title">
+        <p class="eyebrow">A digital resort story</p>
+        <h2>Not just a hotel website. A visual journey through Agadir.</h2>
+    </div>
+
+    <div class="editorial-copy">
+        <p>
+            Designed like an art gallery, the experience guides visitors through the atmosphere of the resort:
+            ocean, sunset, architecture, rituals, rooms and reservation.
+        </p>
+    </div>
+</section>
+
+<section class="experience" id="experience">
+    <div class="section-heading">
+        <p class="eyebrow">The Collection</p>
+        <h2>Choose your atmosphere</h2>
+    </div>
+
+    <div class="vitrine">
+        <article class="vitrine-card active">
+            <img src="assets/images/sunset.jpg" alt="Agadir sunset">
+            <div class="vitrine-info">
+                <span>01</span>
+                <h3>Sunset Coast</h3>
+                <p>Golden skies, ocean air, slow evenings.</p>
+            </div>
+        </article>
+
+        <article class="vitrine-card">
+            <img src="assets/images/ocean.jpg" alt="Ocean and relaxation">
+            <div class="vitrine-info">
+                <span>02</span>
+                <h3>Atlantic Calm</h3>
+                <p>Marina & Blue horizons.</p>
+            </div>
+        </article>
+
+        <article class="vitrine-card">
+            <img src="assets/images/city.jpg" alt="Agadir city">
+            <div class="vitrine-info">
+                <span>03</span>
+                <h3>City Spirit</h3>
+                <p>Agadir from beyond. Where the ocean meets the city.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="rituals" id="rituals">
+    <div class="ritual-left">
+        <p class="eyebrow">Resort rituals</p>
+        <h2>Three moments, one stay.</h2>
+    </div>
+
+    <div class="ritual-grid">
+        <div>
+            <span>Morning</span>
+            <h3>Breakfast by the water</h3>
+            <p>Soft light, fresh flavors and ocean breeze.</p>
+        </div>
+        <div>
+            <span>Afternoon</span>
+            <h3>Poolside escape</h3>
+            <p>A quiet pause under palms and Moroccan sun.</p>
+        </div>
+        <div>
+            <span>Evening</span>
+            <h3>Sunset dining</h3>
+            <p>Warm tones, refined plates and slow conversations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="rooms" id="rooms">
+    <div class="section-heading dark">
+        <p class="eyebrow">Rooms & Suites</p>
+        <h2>Stay inside the story</h2>
+    </div>
+
+    <div class="room-grid">
+        <article class="room-card">
+            <img src="assets/images/room1.jpg" alt="Deluxe room">
+            <div>
+                <span>From 120€/night</span>
+                <h3>Deluxe Room</h3>
+                <p>Elegant comfort inspired by Moroccan textures.</p>
+            </div>
+        </article>
+
+        <article class="room-card featured">
+            <img src="assets/images/room2.jpg" alt="Ocean suite">
+            <div>
+                <span>Signature stay</span>
+                <h3>Ocean Suite</h3>
+                <p>Designed for slow mornings and Atlantic views.</p>
+            </div>
+        </article>
+
+        <article class="room-card">
+            <img src="assets/images/room3.jpg" alt="Private villa">
+            <div>
+                <span>Exclusive</span>
+                <h3>Private Villa</h3>
+                <p>Privacy, serenity and elevated resort living.</p>
+            </div>
+        </article>
+        <a href="pages/rooms.html" class="discover-btn">
+    Discover More
+</a>
+    </div>
+</section>
+
+<section class="booking" id="booking">
+    <p class="eyebrow">Reservation</p>
+    <h2>Plan your escape</h2>
+
+    <form class="booking-panel">
+        <label>
+            Check-in
+            <input type="date">
+        </label>
+
+        <label>
+            Check-out
+            <input type="date">
+        </label>
+
+        <label>
+            Guests
+            <select>
+                <option>2 Guests</option>
+                <option>1 Guest</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+            </select>
+        </label>
+
+        <button type="button">Search availability</button>
+    </form>
+</section>
+
+<footer class="footer" id="footer">
+    <div class="footer-top">
+        <div>
+            <img src="assets/images/logo.png" alt="Sofitel logo">
+            <h2>SOFITEL</h2>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.facebook.com/Sofitel" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/user/sofitel" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/sofitel" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@sofitel" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://open.spotify.com" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+        </div>
+    </div>
+
+    <div class="accor">
+        <h3>Accor Luxury & Lifestyle Universe</h3>
+
+        <div class="brand-row">
+            <span>Luxury</span>
+            <a href="https://raffles.com" target="_blank">Raffles</a>
+            <a href="https://www.banyantree.com" target="_blank">Banyan Tree</a>
+            <a href="https://sofitel.accor.com" target="_blank">Sofitel</a>
+            <a href="https://fairmont.com" target="_blank">Fairmont</a>
+            <a href="https://sls-hotels.com" target="_blank">SLS</a>
+        </div>
+
+        <div class="brand-row">
+            <span>Premium</span>
+            <a href="https://www.mgallery.accor.com" target="_blank">MGallery</a>
+            <a href="https://mondrianhotels.com" target="_blank">Mondrian</a>
+            <a href="https://swissotel.com" target="_blank">Swissôtel</a>
+            <a href="https://www.movenpick.com" target="_blank">Mövenpick</a>
+        </div>
+
+        <div class="brand-row">
+            <span>Midscale</span>
+            <a href="https://novotel.accor.com" target="_blank">Novotel</a>
+            <a href="https://mercure.accor.com" target="_blank">Mercure</a>
+            <a href="https://www.mamashelter.com" target="_blank">Mama Shelter</a>
+            <a href="https://tribe-hotels.com" target="_blank">Tribe</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Legal Notice</a>
+        <a href="#">Accessibility</a>
+        <p>© 2026 Sofitel Royal Bay Agadir — Student internship project. — Made by Soukaina Moussalli</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    const authLink = document.getElementById("authLink");
+
+    if (user) {
+        authLink.textContent = "My Account";
+        authLink.href = "pages/account.html";
+    }
+</script>
 </body>
 </html>

@@ -764,3 +764,31 @@ section {
 .discover-btn:hover::after {
     transform: translateX(6px);
 }
+
+.navbar {
+    grid-template-columns: 260px 1fr auto;
+}
+
+.nav-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-login {
+    justify-self: end;
+    padding: 13px 25px;
+    border: 1px solid rgba(201,164,87,.65);
+    color: #f7efe3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .35s;
+}
+
+.nav-login:hover {
+    background: #c9a457;
+    color: #080706;
+}
+   
