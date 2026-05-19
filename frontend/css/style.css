@@ -43,7 +43,7 @@ a {
     color: #c9a457;
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -725,4 +725,42 @@ section {
 .rooms::before,
 .booking::before {
     display: none !important;
+}
+
+.discover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 34px;
+    padding: 14px 22px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 50px;
+
+    color: #f7efe3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 500;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+
+    transition: 0.35s ease;
+}
+
+.discover-btn::after {
+    content: "→";
+    transition: transform 0.35s ease;
+}
+
+.discover-btn:hover {
+    background: #f7efe3;
+    color: #1b120c;
+    transform: translateY(-4px);
+}
+
+.discover-btn:hover::after {
+    transform: translateX(6px);
 }

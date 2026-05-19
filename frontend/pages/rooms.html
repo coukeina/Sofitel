@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Rooms — Sofitel Agadir</title>
-
     <link rel="stylesheet" href="../css/rooms.css">
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
 <div class="cursor-glow"></div>
 
 <header class="navbar">
@@ -32,17 +30,28 @@
 
 <section class="rooms-hero">
     <p class="eyebrow">Rooms & Suites</p>
-    <h1>Stay inside quiet luxury.</h1>
-    <p>
-        From elegant rooms to private villas, discover refined spaces designed for comfort,
-        ocean light and Moroccan-inspired serenity.
-    </p>
+    <h1>Find the room that feels like you.</h1>
+    <p>Move through ocean views, poolside calm, private terraces and villa intimacy.</p>
+</section>
+
+<section class="room-selector">
+    <p class="eyebrow">Room mood selector</p>
+    <h2>What kind of stay are you dreaming of?</h2>
+
+    <div class="mood-buttons">
+        <button data-filter="all" class="active">All rooms</button>
+        <button data-filter="pool">Pool calm</button>
+        <button data-filter="ocean">Ocean light</button>
+        <button data-filter="suite">Suite escape</button>
+        <button data-filter="villa">Private villa</button>
+    </div>
 </section>
 
 <section class="room-showcase">
 
-    <article class="room-card">
-        <img src="../assets/images/superior-king.jpg" alt="">
+    <article class="room-card" data-category="standard">
+        <span class="room-number">01</span>
+        <img src="../assets/images/superior-king.jpg" alt="Superior Room King Bed">
         <div class="room-info">
             <span>32 m² · 3 persons</span>
             <h2>Superior Room, 1 King Bed</h2>
@@ -51,8 +60,9 @@
         </div>
     </article>
 
-    <article class="room-card">
-        <img src="../assets/images/superior-twin.jpg" alt="">
+    <article class="room-card" data-category="standard">
+        <span class="room-number">02</span>
+        <img src="../assets/images/superior-twin.jpg" alt="Superior Room Twin Beds">
         <div class="room-info">
             <span>32 m² · 3 persons</span>
             <h2>Superior Room, 2 Single Beds</h2>
@@ -61,8 +71,9 @@
         </div>
     </article>
 
-    <article class="room-card featured">
-        <img src="../assets/images/deluxe-pool.jpg" alt="">
+    <article class="room-card" data-category="pool">
+        <span class="room-number">03</span>
+        <img src="../assets/images/deluxe-pool.jpg" alt="Deluxe Room Pool View">
         <div class="room-info">
             <span>32 m² · Pool side</span>
             <h2>Deluxe Room, King Bed & Pool View</h2>
@@ -71,28 +82,31 @@
         </div>
     </article>
 
-    <article class="room-card">
-        <img src="../assets/images/deluxe-twin-pool.jpg" alt="">
+    <article class="room-card" data-category="pool">
+        <span class="room-number">04</span>
+        <img src="../assets/images/deluxe-twin-pool.jpg" alt="Deluxe Twin Pool View">
         <div class="room-info">
             <span>32 m² · Pool side</span>
             <h2>Deluxe Room, 2 Twin Beds & Pool View</h2>
-            <p>Comfortable twin beds with poolside views and soft Moroccan tones.</p>
+            <p>Comfortable twin beds with soft Moroccan tones and poolside views.</p>
             <a href="booking.html">Check availability</a>
         </div>
     </article>
 
-    <article class="room-card">
-        <img src="../assets/images/deluxe-ocean.jpg" alt="">
+    <article class="room-card featured" data-category="ocean">
+        <span class="room-number">05</span>
+        <img src="../assets/images/deluxe-ocean.jpg" alt="Deluxe Ocean View">
         <div class="room-info">
             <span>32 m² · Ocean view</span>
             <h2>Deluxe Room, King Bed & Ocean View</h2>
-            <p>A serene room facing the Atlantic, made for slow mornings.</p>
+            <p>A serene room facing the Atlantic, made for slow mornings and golden light.</p>
             <a href="booking.html">Check availability</a>
         </div>
     </article>
 
-    <article class="room-card">
-        <img src="../assets/images/deluxe-terrace.jpg" alt="">
+    <article class="room-card" data-category="pool">
+        <span class="room-number">06</span>
+        <img src="../assets/images/deluxe-terrace.jpg" alt="Deluxe Terrace">
         <div class="room-info">
             <span>32 m² · Terrace · Pool view</span>
             <h2>Deluxe Room with Terrace</h2>
@@ -101,18 +115,20 @@
         </div>
     </article>
 
-    <article class="room-card featured">
-        <img src="../assets/images/privilege-suite.jpg" alt="">
+    <article class="room-card wide" data-category="suite">
+        <span class="room-number">07</span>
+        <img src="../assets/images/privilege-suite.jpg" alt="Privilege Suite">
         <div class="room-info">
             <span>90 m² · 4 persons · Ocean view</span>
             <h2>Privilege Suite with Large Terrace</h2>
-            <p>A spacious suite with ocean views, terrace living and refined details.</p>
+            <p>A spacious suite designed for ocean views, terrace living and refined details.</p>
             <a href="booking.html">Check availability</a>
         </div>
     </article>
 
-    <article class="room-card">
-        <img src="../assets/images/executive-villa.jpg" alt="">
+    <article class="room-card villa" data-category="villa">
+        <span class="room-number">08</span>
+        <img src="../assets/images/executive-villa.jpg" alt="Executive Villa">
         <div class="room-info">
             <span>121 m² · 6 persons · Private heated pool</span>
             <h2>Executive Villa with 2 Bedrooms</h2>
@@ -121,8 +137,9 @@
         </div>
     </article>
 
-    <article class="room-card royal">
-        <img src="../assets/images/royal-villa.jpg" alt="">
+    <article class="room-card royal" data-category="villa">
+        <span class="room-number">09</span>
+        <img src="../assets/images/royal-villa.jpg" alt="Royal Villa">
         <div class="room-info">
             <span>321 m² · 9 persons · Ocean view</span>
             <h2>Royal Villa with 3 Bedrooms</h2>
@@ -133,9 +150,21 @@
 
 </section>
 
+<section class="comparison">
+    <p class="eyebrow">Quick comparison</p>
+    <h2>Choose by feeling, compare by detail.</h2>
+
+    <div class="compare-grid">
+        <div><span>Best for</span><strong>Couples</strong><p>Deluxe Ocean View</p></div>
+        <div><span>Best for</span><strong>Families</strong><p>Executive Villa</p></div>
+        <div><span>Best view</span><strong>Atlantic</strong><p>Privilege Suite</p></div>
+        <div><span>Most exclusive</span><strong>Royal Villa</strong><p>321 m² residence</p></div>
+    </div>
+</section>
+
 <footer class="footer">
     <div class="footer-brand">
-        <img src="../assets/images/logo.png" alt="">
+        <img src="../assets/images/logo.png" alt="Sofitel logo">
         <h2>SOFITEL</h2>
         <p>French elegance. Moroccan soul. Atlantic light.</p>
     </div>
