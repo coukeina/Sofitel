@@ -16,6 +16,8 @@
         <span>SOFITEL</span>
     </a>
 
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
     <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
@@ -25,7 +27,9 @@
         <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <a href="booking.html" class="nav-cta">Reserve</a>
+    <div class="nav-actions">
+        <a href="login.html" class="nav-login" id="authLink">Login/Register</a>
+    </div>
 </header>
 
 <section class="rooms-hero">
@@ -181,5 +185,27 @@
 </footer>
 
 <script src="../js/rooms.js"></script>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+const authLink = document.getElementById("authLink");
+
+if (user && authLink) {
+    authLink.textContent = "My Account";
+    authLink.href = "account.html";
+}
+</script>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navbar = document.querySelector(".navbar");
+
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("open");
+        menuToggle.textContent = navbar.classList.contains("open") ? "×" : "☰";
+    });
+}
+</script>
 </body>
 </html>

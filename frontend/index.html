@@ -17,6 +17,12 @@
         <span>SOFITEL</span>
     </a>
 
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="pages/experience.html">Experience</a></li>
@@ -24,7 +30,7 @@
         <li><a href="pages/dining.html">Dining</a></li>
         <li><a href="pages/booking.html">Booking</a></li>
         <li><a href="pages/contact.html">Contact</a></li>
-    </ul>
+    </ul>   
 
     <div class="nav-actions">
         <a href="pages/login.html" class="nav-login" id="authLink">Login/Register</a>
@@ -257,245 +263,397 @@
 </footer>
 
 <script src="js/main.js"></script>
-</body>
-</html>
-</nav>
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+const authLink = document.getElementById("authLink");
 
-<section class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="assets/videos/background.mp4" type="video/mp4">
-    </video>
-
-    <div class="hero-shade"></div>
-    <div class="grain"></div>
-
-    <div class="hero-content">
-        <p class="eyebrow">Sofitel Royal Bay Agadir</p>
-        <h1>Agadir, curated as a feeling.</h1>
-        <p class="hero-text">
-            A cinematic resort experience between Atlantic light, Moroccan elegance and slow luxury.
-        </p>
-
-        <div class="hero-actions">
-            <a href="#booking">Book your stay</a>
-            <a href="#experience" class="ghost">Explore the story</a>
-        </div>
-    </div>
-
-</section>
-
-<section class="editorial">
-    <div class="editorial-bg"></div>
-
-    <div class="editorial-number">01</div>
-
-    <div class="editorial-title">
-        <p class="eyebrow">A digital resort story</p>
-        <h2>Not just a hotel website. A visual journey through Agadir.</h2>
-    </div>
-
-    <div class="editorial-copy">
-        <p>
-            Designed like an art gallery, the experience guides visitors through the atmosphere of the resort:
-            ocean, sunset, architecture, rituals, rooms and reservation.
-        </p>
-    </div>
-</section>
-
-<section class="experience" id="experience">
-    <div class="section-heading">
-        <p class="eyebrow">The Collection</p>
-        <h2>Choose your atmosphere</h2>
-    </div>
-
-    <div class="vitrine">
-        <article class="vitrine-card active">
-            <img src="assets/images/sunset.jpg" alt="Agadir sunset">
-            <div class="vitrine-info">
-                <span>01</span>
-                <h3>Sunset Coast</h3>
-                <p>Golden skies, ocean air, slow evenings.</p>
-            </div>
-        </article>
-
-        <article class="vitrine-card">
-            <img src="assets/images/ocean.jpg" alt="Ocean and relaxation">
-            <div class="vitrine-info">
-                <span>02</span>
-                <h3>Atlantic Calm</h3>
-                <p>Marina & Blue horizons.</p>
-            </div>
-        </article>
-
-        <article class="vitrine-card">
-            <img src="assets/images/city.jpg" alt="Agadir city">
-            <div class="vitrine-info">
-                <span>03</span>
-                <h3>City Spirit</h3>
-                <p>Agadir from beyond. Where the ocean meets the city.</p>
-            </div>
-        </article>
-    </div>
-</section>
-
-<section class="rituals" id="rituals">
-    <div class="ritual-left">
-        <p class="eyebrow">Resort rituals</p>
-        <h2>Three moments, one stay.</h2>
-    </div>
-
-    <div class="ritual-grid">
-        <div>
-            <span>Morning</span>
-            <h3>Breakfast by the water</h3>
-            <p>Soft light, fresh flavors and ocean breeze.</p>
-        </div>
-        <div>
-            <span>Afternoon</span>
-            <h3>Poolside escape</h3>
-            <p>A quiet pause under palms and Moroccan sun.</p>
-        </div>
-        <div>
-            <span>Evening</span>
-            <h3>Sunset dining</h3>
-            <p>Warm tones, refined plates and slow conversations.</p>
-        </div>
-    </div>
-</section>
-
-<section class="rooms" id="rooms">
-    <div class="section-heading dark">
-        <p class="eyebrow">Rooms & Suites</p>
-        <h2>Stay inside the story</h2>
-    </div>
-
-    <div class="room-grid">
-        <article class="room-card">
-            <img src="assets/images/room1.jpg" alt="Deluxe room">
-            <div>
-                <span>From 120€/night</span>
-                <h3>Deluxe Room</h3>
-                <p>Elegant comfort inspired by Moroccan textures.</p>
-            </div>
-        </article>
-
-        <article class="room-card featured">
-            <img src="assets/images/room2.jpg" alt="Ocean suite">
-            <div>
-                <span>Signature stay</span>
-                <h3>Ocean Suite</h3>
-                <p>Designed for slow mornings and Atlantic views.</p>
-            </div>
-        </article>
-
-        <article class="room-card">
-            <img src="assets/images/room3.jpg" alt="Private villa">
-            <div>
-                <span>Exclusive</span>
-                <h3>Private Villa</h3>
-                <p>Privacy, serenity and elevated resort living.</p>
-            </div>
-        </article>
-        <a href="pages/rooms.html" class="discover-btn">
-    Discover More
-</a>
-    </div>
-</section>
-
-<section class="booking" id="booking">
-    <p class="eyebrow">Reservation</p>
-    <h2>Plan your escape</h2>
-
-    <form class="booking-panel">
-        <label>
-            Check-in
-            <input type="date">
-        </label>
-
-        <label>
-            Check-out
-            <input type="date">
-        </label>
-
-        <label>
-            Guests
-            <select>
-                <option>2 Guests</option>
-                <option>1 Guest</option>
-                <option>3 Guests</option>
-                <option>4 Guests</option>
-            </select>
-        </label>
-
-        <button type="button">Search availability</button>
-    </form>
-</section>
-
-<footer class="footer" id="footer">
-    <div class="footer-top">
-        <div>
-            <img src="assets/images/logo.png" alt="Sofitel logo">
-            <h2>SOFITEL</h2>
-        </div>
-
-        <div class="socials">
-            <a href="https://www.facebook.com/Sofitel" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/user/sofitel" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.instagram.com/sofitel" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@sofitel" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://open.spotify.com" target="_blank"><i class="fa-brands fa-spotify"></i></a>
-        </div>
-    </div>
-
-    <div class="accor">
-        <h3>Accor Luxury & Lifestyle Universe</h3>
-
-        <div class="brand-row">
-            <span>Luxury</span>
-            <a href="https://raffles.com" target="_blank">Raffles</a>
-            <a href="https://www.banyantree.com" target="_blank">Banyan Tree</a>
-            <a href="https://sofitel.accor.com" target="_blank">Sofitel</a>
-            <a href="https://fairmont.com" target="_blank">Fairmont</a>
-            <a href="https://sls-hotels.com" target="_blank">SLS</a>
-        </div>
-
-        <div class="brand-row">
-            <span>Premium</span>
-            <a href="https://www.mgallery.accor.com" target="_blank">MGallery</a>
-            <a href="https://mondrianhotels.com" target="_blank">Mondrian</a>
-            <a href="https://swissotel.com" target="_blank">Swissôtel</a>
-            <a href="https://www.movenpick.com" target="_blank">Mövenpick</a>
-        </div>
-
-        <div class="brand-row">
-            <span>Midscale</span>
-            <a href="https://novotel.accor.com" target="_blank">Novotel</a>
-            <a href="https://mercure.accor.com" target="_blank">Mercure</a>
-            <a href="https://www.mamashelter.com" target="_blank">Mama Shelter</a>
-            <a href="https://tribe-hotels.com" target="_blank">Tribe</a>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookies</a>
-        <a href="#">Legal Notice</a>
-        <a href="#">Accessibility</a>
-        <p>© 2026 Sofitel Royal Bay Agadir — Student internship project. — Made by Soukaina Moussalli</p>
-    </div>
-</footer>
-
-<script src="js/main.js"></script>
+if (user && authLink) {
+    authLink.textContent = "My Account";
+    authLink.href = "pages/account.html";
+}
+</script>
 
 <script>
-    const user = JSON.parse(localStorage.getItem("user"));
-    const authLink = document.getElementById("authLink");
+(function () {
+    const toggle = document.getElementById("menuToggle");
+    const navbar = document.querySelector(".navbar");
+    if (!toggle || !navbar) return;
 
-    if (user) {
-        authLink.textContent = "My Account";
-        authLink.href = "pages/account.html";
-    }
+    toggle.addEventListener("click", () => {
+        const isOpen = navbar.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    /* Ferme le menu si on clique sur un lien */
+    navbar.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navbar.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    /* Ferme le menu si on clique en dehors */
+    document.addEventListener("click", (e) => {
+        if (!navbar.contains(e.target)) {
+            navbar.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    /* Scrolled state */
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 40);
+    });
+})();
 </script>
+
+<!-- ===== BOUTON LANGUE FLOTTANT ===== -->
+<div class="lang-float" id="langFloat">
+    <button class="lang-globe" id="langGlobe" aria-label="Langue / Language" aria-expanded="false">
+        <i class="fa-solid fa-globe"></i>
+    </button>
+    <div class="lang-dropdown" id="langDropdown" role="menu">
+        <button class="lang-opt active" data-lang="fr" role="menuitem">
+            <span class="lang-flag">&#x1F1EB;&#x1F1F7;</span>
+            <span class="lang-name">Fran&#xe7;ais</span>
+            <i class="fa-solid fa-check lang-check"></i>
+        </button>
+        <button class="lang-opt" data-lang="en" role="menuitem">
+            <span class="lang-flag">&#x1F1EC;&#x1F1E7;</span>
+            <span class="lang-name">English</span>
+            <i class="fa-solid fa-check lang-check"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+(function () {
+
+    /* ---- Dictionnaire de traduction ---- */
+    const translations = {
+        fr: {
+            /* Navbar */
+            "nav-home":        "Accueil",
+            "nav-experience":  "Expérience",
+            "nav-rooms":       "Chambres",
+            "nav-dining":      "Restaurant",
+            "nav-booking":     "Réservation",
+            "nav-contact":     "Contact",
+
+            /* Hero */
+            "hero-eyebrow":    "Sofitel Royal Bay Agadir",
+            "hero-h1":         "Agadir, une sensation à vivre.",
+            "hero-text":       "Une expérience de villégiature cinématographique entre lumière atlantique, élégance marocaine et luxe lent.",
+            "hero-cta1":       "Réserver votre séjour",
+            "hero-cta2":       "Découvrir l'histoire",
+
+            /* Editorial */
+            "edit-eyebrow":    "Une histoire de resort digital",
+            "edit-h2":         "Pas seulement un site hôtelier. Un voyage visuel à travers Agadir.",
+            "edit-copy":       "Conçue comme une galerie d'art, l'expérience guide les visiteurs à travers l'atmosphère du resort : océan, coucher de soleil, architecture, rituels, chambres et réservation.",
+
+            /* Experience */
+            "exp-eyebrow":     "La Collection",
+            "exp-h2":          "Choisissez votre atmosphère",
+            "card1-h3":        "Côte au Coucher du Soleil",
+            "card1-p":         "Ciels dorés, air océanique, soirées douces.",
+            "card2-h3":        "Calme Atlantique",
+            "card2-p":         "Marina & horizons bleus.",
+            "card3-h3":        "Esprit de la Ville",
+            "card3-p":         "Agadir au-delà. Là où l'océan rencontre la cité.",
+
+            /* Rituals */
+            "ritual-eyebrow":  "Rituels du resort",
+            "ritual-h2":       "Trois moments, un séjour.",
+            "ritual1-span":    "Matin",
+            "ritual1-h3":      "Petit-déjeuner au bord de l'eau",
+            "ritual1-p":       "Lumière douce, saveurs fraîches et brise océanique.",
+            "ritual2-span":    "Après-midi",
+            "ritual2-h3":      "Évasion au bord de la piscine",
+            "ritual2-p":       "Une pause tranquille sous les palmiers et le soleil marocain.",
+            "ritual3-span":    "Soir",
+            "ritual3-h3":      "Dîner au coucher du soleil",
+            "ritual3-p":       "Tons chauds, plats raffinés et conversations lentes.",
+
+            /* Rooms */
+            "rooms-eyebrow":   "Chambres & Suites",
+            "rooms-h2":        "Séjourner dans l'histoire",
+            "room1-span":      "À partir de 120€/nuit",
+            "room1-h3":        "Chambre Deluxe",
+            "room1-p":         "Confort élégant inspiré des textures marocaines.",
+            "room2-span":      "Séjour Signature",
+            "room2-h3":        "Suite Océan",
+            "room2-p":         "Conçue pour les matins lents et les vues sur l'Atlantique.",
+            "room3-span":      "Exclusivité",
+            "room3-h3":        "Villa Privée",
+            "room3-p":         "Intimité, sérénité et art de vivre élevé.",
+            "discover-btn":    "Découvrir Plus",
+
+            /* Booking */
+            "booking-eyebrow": "Réservation",
+            "booking-h2":      "Planifiez votre escapade",
+            "checkin-label":   "Arrivée",
+            "checkout-label":  "Départ",
+            "guests-label":    "Voyageurs",
+            "g1": "2 Voyageurs", "g2": "1 Voyageur", "g3": "3 Voyageurs", "g4": "4 Voyageurs",
+            "search-btn":      "Vérifier les disponibilités",
+
+            /* Footer */
+            "accor-h3":        "L'Univers Luxe & Lifestyle Accor",
+            "brand-luxury":    "Luxe",
+            "brand-premium":   "Premium",
+            "brand-mid":       "Milieu de gamme",
+            "footer-terms":    "Conditions générales",
+            "footer-privacy":  "Politique de confidentialité",
+            "footer-cookies":  "Cookies",
+            "footer-legal":    "Mentions légales",
+            "footer-access":   "Accessibilité",
+        },
+
+        en: {
+            "nav-home":        "Home",
+            "nav-experience":  "Experience",
+            "nav-rooms":       "Rooms",
+            "nav-dining":      "Dining",
+            "nav-booking":     "Booking",
+            "nav-contact":     "Contact",
+
+            "hero-eyebrow":    "Sofitel Royal Bay Agadir",
+            "hero-h1":         "Agadir, curated as a feeling.",
+            "hero-text":       "A cinematic resort experience between Atlantic light, Moroccan elegance and slow luxury.",
+            "hero-cta1":       "Book your stay",
+            "hero-cta2":       "Explore the story",
+
+            "edit-eyebrow":    "A digital resort story",
+            "edit-h2":         "Not just a hotel website. A visual journey through Agadir.",
+            "edit-copy":       "Designed like an art gallery, the experience guides visitors through the atmosphere of the resort: ocean, sunset, architecture, rituals, rooms and reservation.",
+
+            "exp-eyebrow":     "The Collection",
+            "exp-h2":          "Choose your atmosphere",
+            "card1-h3":        "Sunset Coast",
+            "card1-p":         "Golden skies, ocean air, slow evenings.",
+            "card2-h3":        "Atlantic Calm",
+            "card2-p":         "Marina & Blue horizons.",
+            "card3-h3":        "City Spirit",
+            "card3-p":         "Agadir from beyond. Where the ocean meets the city.",
+
+            "ritual-eyebrow":  "Resort rituals",
+            "ritual-h2":       "Three moments, one stay.",
+            "ritual1-span":    "Morning",
+            "ritual1-h3":      "Breakfast by the water",
+            "ritual1-p":       "Soft light, fresh flavors and ocean breeze.",
+            "ritual2-span":    "Afternoon",
+            "ritual2-h3":      "Poolside escape",
+            "ritual2-p":       "A quiet pause under palms and Moroccan sun.",
+            "ritual3-span":    "Evening",
+            "ritual3-h3":      "Sunset dining",
+            "ritual3-p":       "Warm tones, refined plates and slow conversations.",
+
+            "rooms-eyebrow":   "Rooms & Suites",
+            "rooms-h2":        "Stay inside the story",
+            "room1-span":      "From 120€/night",
+            "room1-h3":        "Deluxe Room",
+            "room1-p":         "Elegant comfort inspired by Moroccan textures.",
+            "room2-span":      "Signature stay",
+            "room2-h3":        "Ocean Suite",
+            "room2-p":         "Designed for slow mornings and Atlantic views.",
+            "room3-span":      "Exclusive",
+            "room3-h3":        "Private Villa",
+            "room3-p":         "Privacy, serenity and elevated resort living.",
+            "discover-btn":    "Discover More",
+
+            "booking-eyebrow": "Reservation",
+            "booking-h2":      "Plan your escape",
+            "checkin-label":   "Check-in",
+            "checkout-label":  "Check-out",
+            "guests-label":    "Guests",
+            "g1": "2 Guests", "g2": "1 Guest", "g3": "3 Guests", "g4": "4 Guests",
+            "search-btn":      "Search availability",
+
+            "accor-h3":        "Accor Luxury & Lifestyle Universe",
+            "brand-luxury":    "Luxury",
+            "brand-premium":   "Premium",
+            "brand-mid":       "Midscale",
+            "footer-terms":    "Terms & Conditions",
+            "footer-privacy":  "Privacy Policy",
+            "footer-cookies":  "Cookies",
+            "footer-legal":    "Legal Notice",
+            "footer-access":   "Accessibility",
+        }
+    };
+
+    /* ---- Map clé → élément DOM ---- */
+    function getNodes() {
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const ritualDivs = document.querySelectorAll(".ritual-grid > div");
+        const roomCards  = document.querySelectorAll(".room-card");
+        const vitCards   = document.querySelectorAll(".vitrine-card");
+        const footerLinks = document.querySelectorAll(".footer-bottom a");
+        const guestOpts  = document.querySelectorAll(".booking-panel select option");
+        const brandRows  = document.querySelectorAll(".brand-row > span");
+
+        return [
+            /* Navbar */
+            [navLinks[0], "nav-home", "text"],
+            [navLinks[1], "nav-experience", "text"],
+            [navLinks[2], "nav-rooms", "text"],
+            [navLinks[3], "nav-dining", "text"],
+            [navLinks[4], "nav-booking", "text"],
+            [navLinks[5], "nav-contact", "text"],
+
+            /* Hero */
+            [document.querySelector(".hero .eyebrow"), "hero-eyebrow", "text"],
+            [document.querySelector(".hero-content h1"), "hero-h1", "text"],
+            [document.querySelector(".hero-text"), "hero-text", "text"],
+            [document.querySelector(".hero-actions a:first-child"), "hero-cta1", "text"],
+            [document.querySelector(".hero-actions .ghost"), "hero-cta2", "text"],
+
+            /* Editorial */
+            [document.querySelector(".editorial .eyebrow"), "edit-eyebrow", "text"],
+            [document.querySelector(".editorial-title h2"), "edit-h2", "text"],
+            [document.querySelector(".editorial-copy p"), "edit-copy", "text"],
+
+            /* Experience */
+            [document.querySelector(".experience .eyebrow"), "exp-eyebrow", "text"],
+            [document.querySelector(".experience h2"), "exp-h2", "text"],
+            [vitCards[0] && vitCards[0].querySelector("h3"), "card1-h3", "text"],
+            [vitCards[0] && vitCards[0].querySelector("p"),  "card1-p",  "text"],
+            [vitCards[1] && vitCards[1].querySelector("h3"), "card2-h3", "text"],
+            [vitCards[1] && vitCards[1].querySelector("p"),  "card2-p",  "text"],
+            [vitCards[2] && vitCards[2].querySelector("h3"), "card3-h3", "text"],
+            [vitCards[2] && vitCards[2].querySelector("p"),  "card3-p",  "text"],
+
+            /* Rituals */
+            [document.querySelector(".ritual-left .eyebrow"), "ritual-eyebrow", "text"],
+            [document.querySelector(".ritual-left h2"), "ritual-h2", "text"],
+            [ritualDivs[0] && ritualDivs[0].querySelector("span"), "ritual1-span", "text"],
+            [ritualDivs[0] && ritualDivs[0].querySelector("h3"),   "ritual1-h3",   "text"],
+            [ritualDivs[0] && ritualDivs[0].querySelector("p"),    "ritual1-p",    "text"],
+            [ritualDivs[1] && ritualDivs[1].querySelector("span"), "ritual2-span", "text"],
+            [ritualDivs[1] && ritualDivs[1].querySelector("h3"),   "ritual2-h3",   "text"],
+            [ritualDivs[1] && ritualDivs[1].querySelector("p"),    "ritual2-p",    "text"],
+            [ritualDivs[2] && ritualDivs[2].querySelector("span"), "ritual3-span", "text"],
+            [ritualDivs[2] && ritualDivs[2].querySelector("h3"),   "ritual3-h3",   "text"],
+            [ritualDivs[2] && ritualDivs[2].querySelector("p"),    "ritual3-p",    "text"],
+
+            /* Rooms */
+            [document.querySelector(".rooms .eyebrow"), "rooms-eyebrow", "text"],
+            [document.querySelector(".rooms h2"), "rooms-h2", "text"],
+            [roomCards[0] && roomCards[0].querySelector("span"), "room1-span", "text"],
+            [roomCards[0] && roomCards[0].querySelector("h3"),   "room1-h3",   "text"],
+            [roomCards[0] && roomCards[0].querySelector("p"),    "room1-p",    "text"],
+            [roomCards[1] && roomCards[1].querySelector("span"), "room2-span", "text"],
+            [roomCards[1] && roomCards[1].querySelector("h3"),   "room2-h3",   "text"],
+            [roomCards[1] && roomCards[1].querySelector("p"),    "room2-p",    "text"],
+            [roomCards[2] && roomCards[2].querySelector("span"), "room3-span", "text"],
+            [roomCards[2] && roomCards[2].querySelector("h3"),   "room3-h3",   "text"],
+            [roomCards[2] && roomCards[2].querySelector("p"),    "room3-p",    "text"],
+            [document.querySelector(".discover-btn"), "discover-btn", "text"],
+
+            /* Booking */
+            [document.querySelector(".booking .eyebrow"), "booking-eyebrow", "text"],
+            [document.querySelector(".booking h2"), "booking-h2", "text"],
+            [document.querySelector(".booking-panel label:nth-child(1)"), "checkin-label",  "label"],
+            [document.querySelector(".booking-panel label:nth-child(2)"), "checkout-label", "label"],
+            [document.querySelector(".booking-panel label:nth-child(3)"), "guests-label",   "label"],
+            [guestOpts[0], "g1", "text"],
+            [guestOpts[1], "g2", "text"],
+            [guestOpts[2], "g3", "text"],
+            [guestOpts[3], "g4", "text"],
+            [document.querySelector(".booking-panel button"), "search-btn", "text"],
+
+            /* Footer */
+            [document.querySelector(".accor h3"), "accor-h3", "text"],
+            [brandRows[0], "brand-luxury",  "text"],
+            [brandRows[1], "brand-premium", "text"],
+            [brandRows[2], "brand-mid",     "text"],
+            [footerLinks[0], "footer-terms",   "text"],
+            [footerLinks[1], "footer-privacy", "text"],
+            [footerLinks[2], "footer-cookies", "text"],
+            [footerLinks[3], "footer-legal",   "text"],
+            [footerLinks[4], "footer-access",  "text"],
+        ];
+    }
+
+    /* ---- Applique la langue ---- */
+    function applyLang(lang) {
+        const t = translations[lang];
+        getNodes().forEach(([el, key, type]) => {
+            if (!el || !t[key]) return;
+            if (type === "text") {
+                el.textContent = t[key];
+            } else if (type === "label") {
+                /* Pour les labels : on garde l'input enfant et on remplace le texte */
+                const input = el.querySelector("input, select");
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) node.textContent = t[key];
+                });
+                if (!el.textContent.trim().startsWith(t[key]) && !input) {
+                    el.textContent = t[key];
+                }
+            }
+        });
+
+        /* Met à jour l'attribut lang du <html> */
+        document.documentElement.lang = lang;
+
+        /* Mémorise le choix */
+        try { localStorage.setItem("sofitel-lang", lang); } catch(e) {}
+    }
+
+    /* ---- UI du bouton flottant ---- */
+    const globe    = document.getElementById("langGlobe");
+    const dropdown = document.getElementById("langDropdown");
+    const opts     = document.querySelectorAll(".lang-opt");
+    let currentLang = "fr";
+
+    function openMenu() {
+        dropdown.classList.add("open");
+        globe.setAttribute("aria-expanded", "true");
+    }
+    function closeMenu() {
+        dropdown.classList.remove("open");
+        globe.setAttribute("aria-expanded", "false");
+    }
+
+    globe.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.contains("open") ? closeMenu() : openMenu();
+    });
+
+    opts.forEach(btn => {
+        btn.addEventListener("click", () => {
+            currentLang = btn.dataset.lang;
+            opts.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            applyLang(currentLang);
+            closeMenu();
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("#langFloat")) closeMenu();
+    });
+
+    /* Ferme avec Escape */
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+    });
+
+    /* Restore depuis localStorage */
+    try {
+        const saved = localStorage.getItem("sofitel-lang");
+        if (saved && translations[saved]) {
+            currentLang = saved;
+            if (saved !== "fr") {
+                opts.forEach(b => b.classList.toggle("active", b.dataset.lang === saved));
+                applyLang(saved);
+            }
+        }
+    } catch(e) {}
+
+})();
+</script>
+
 </body>
 </html>

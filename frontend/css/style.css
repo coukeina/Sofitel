@@ -791,4 +791,391 @@ section {
     background: #c9a457;
     color: #080706;
 }
-   
+
+
+/* ================================================
+   MENU SANDWICH & RESPONSIVE — VERSION FINALE
+   ================================================ */
+
+.menu-toggle {
+    display: none;
+    background: rgba(8,7,6,.75);
+    border: 1px solid rgba(201,164,87,.65);
+    color: #f7efe3;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 1100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #c9a457;
+    transition: transform .35s ease, opacity .25s ease;
+    border-radius: 2px;
+}
+
+/* Burger → X animation */
+.navbar.open .menu-toggle .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.navbar.open .menu-toggle .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.navbar.open .menu-toggle .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============ BREAKPOINT TABLETTE / MOBILE ============ */
+@media (max-width: 900px) {
+
+    /* --- Navbar container --- */
+    .navbar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px !important;
+        background: rgba(8,7,6,.92) !important;
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        gap: 0;
+    }
+
+    /* --- Brand --- */
+    .brand img  { height: 24px; }
+    .brand span { font-size: 20px; letter-spacing: 4px; }
+
+    /* --- Bouton sandwich visible --- */
+    .menu-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    /* --- Liens et actions cachés par défaut --- */
+    .nav-links,
+    .nav-actions {
+        display: none !important;
+        width: 100%;
+        order: 4;
+    }
+
+    /* --- Quand menu ouvert --- */
+    .navbar.open .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 18px 0 8px;
+        border-top: 1px solid rgba(201,164,87,.2);
+        margin-top: 12px;
+    }
+
+    .navbar.open .nav-links li a {
+        display: block;
+        padding: 12px 0;
+        font-size: 13px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #f7efe3;
+        transition: color .25s;
+    }
+
+    .navbar.open .nav-links li a:hover {
+        color: #c9a457;
+    }
+
+    .navbar.open .nav-actions {
+        display: flex !important;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    /* Login button in mobile — show text normally */
+    .nav-login {
+        font-size: 11px !important;
+        padding: 12px 22px !important;
+        letter-spacing: 2px;
+    }
+    .nav-login::before { content: none !important; }
+
+    /* --- Hero --- */
+    .hero-content {
+        width: 90%;
+        top: 54%;
+    }
+    .hero-content h1 {
+        font-size: clamp(44px, 13vw, 72px) !important;
+        line-height: .95 !important;
+    }
+    .hero-text {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-actions a {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+        padding: 14px 20px;
+    }
+
+    /* --- Sections padding --- */
+    .editorial {
+        min-height: auto !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 110px 24px 80px !important;
+    }
+    .editorial-number { font-size: 54px !important; }
+    .editorial-copy p { max-width: 100%; font-size: 16px; }
+
+    .experience,
+    .rituals,
+    .rooms,
+    .booking {
+        padding: 80px 24px !important;
+    }
+
+    /* --- Headings --- */
+    .editorial-title h2,
+    .section-heading h2,
+    .ritual-left h2,
+    .booking h2 {
+        font-size: clamp(38px, 11vw, 62px) !important;
+        line-height: 1 !important;
+    }
+    .section-heading {
+        display: block !important;
+        margin-bottom: 34px;
+    }
+
+    /* --- Vitrine cards --- */
+    .vitrine {
+        height: auto !important;
+        flex-direction: column !important;
+        gap: 16px;
+    }
+    .vitrine-card,
+    .vitrine-card.active,
+    .vitrine-card:hover {
+        flex: none !important;
+        height: 280px !important;
+        opacity: 1 !important;
+    }
+
+    /* --- Rituals --- */
+    .rituals {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    .ritual-left h2 { font-size: clamp(36px, 10vw, 56px) !important; }
+
+    /* --- Rooms --- */
+    .room-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px;
+    }
+    .room-card.featured,
+    .room-card.featured:hover {
+        transform: none !important;
+    }
+    .discover-btn {
+        display: flex;
+        width: fit-content;
+        margin: 24px auto 0;
+    }
+
+    /* --- Booking panel --- */
+    .booking-panel {
+        grid-template-columns: 1fr !important;
+        border-radius: 24px !important;
+        padding: 22px !important;
+    }
+    .booking-panel label { padding-left: 0 !important; }
+    .booking-panel button { padding: 18px; }
+
+    /* --- Footer --- */
+    .footer { padding: 70px 24px 34px !important; }
+    .socials {
+        gap: 24px !important;
+        flex-wrap: wrap;
+        margin: 40px 0 60px;
+    }
+    .accor { padding: 0 !important; }
+    .accor h3 { font-size: 32px !important; }
+    .brand-row {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 16px;
+    }
+    .footer-bottom {
+        padding: 24px 0 !important;
+    }
+    .footer-bottom a {
+        display: inline-block;
+        margin: 8px 10px;
+    }
+}
+
+/* ============ TRÈS PETIT ÉCRAN (< 480px) ============ */
+@media (max-width: 480px) {
+    .brand span { font-size: 18px; letter-spacing: 3px; }
+    .vitrine-card,
+    .vitrine-card.active,
+    .vitrine-card:hover {
+        height: 240px !important;
+    }
+    .hero-content h1 {
+        font-size: clamp(38px, 12vw, 58px) !important;
+    }
+    .vitrine-info h3 { font-size: 32px; }
+}
+
+/* ================================================
+   BOUTON LANGUE FLOTTANT
+   ================================================ */
+
+.lang-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* Bouton globe */
+.lang-globe {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #c9a457;
+    border: none;
+    color: #080706;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
+    transition: transform .3s ease, background .25s ease;
+    flex-shrink: 0;
+}
+
+.lang-globe:hover {
+    transform: scale(1.08) rotate(15deg);
+    background: #d9b567;
+}
+
+.lang-globe:focus-visible {
+    outline: 2px solid #c9a457;
+    outline-offset: 3px;
+}
+
+/* Menu déroulant */
+.lang-dropdown {
+    background: rgba(8, 7, 6, 0.95);
+    border: 1px solid rgba(201, 164, 87, 0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    min-width: 150px;
+
+    /* État fermé */
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    transform-origin: bottom right;
+}
+
+.lang-dropdown.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Options */
+.lang-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 13px 18px;
+    background: transparent;
+    border: none;
+    color: rgba(247, 239, 227, 0.65);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    text-align: left;
+}
+
+.lang-opt + .lang-opt {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.lang-opt:hover {
+    background: rgba(201, 164, 87, 0.1);
+    color: #f7efe3;
+}
+
+.lang-opt.active {
+    color: #c9a457;
+}
+
+.lang-flag {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.lang-name {
+    flex: 1;
+}
+
+.lang-check {
+    font-size: 11px;
+    color: #c9a457;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.lang-opt.active .lang-check {
+    opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .lang-float {
+        bottom: 22px;
+        right: 18px;
+    }
+    .lang-globe {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+}

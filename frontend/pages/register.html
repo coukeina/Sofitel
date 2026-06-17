@@ -19,6 +19,8 @@
         <span>SOFITEL</span>
     </a>
 
+<button class="menu-toggle" id="menuToggle">☰</button>
+
     <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
@@ -153,5 +155,17 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
 
 </script>
 
+<script src="../js/auth.js"></script>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navbar = document.querySelector(".navbar");
+
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("open");
+        menuToggle.textContent = navbar.classList.contains("open") ? "×" : "☰";
+    });
+}
+</script>
 </body>
 </html>
